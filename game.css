@@ -1,0 +1,25 @@
+#gameContainer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#gameCanvas {
+    border: 1px solid black;
+}
+
+#gameStatus {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#restartButton {
+    margin-top: 20px;
+}
+
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    color: #333;
+  }
+ 
