@@ -135,7 +135,10 @@ function gameOver() {
         return;
     }
     isGameOver = true;
+  
     gameStatus.textContent = 'Game Over! Final Score: ' + score;
+    gameStatus.style.color = "goldenrod";
+    score.style.color = "red";
 }
 
 
@@ -182,7 +185,7 @@ function restartGame() {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Delay the game loop start
-    setTimeout(gameLoop, 2000);
+    setTimeout(gameLoop, 300);
 }
 
 
