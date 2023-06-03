@@ -6,10 +6,11 @@ const gameStatus = document.getElementById('gameStatus');
 // Set up the game variables
 const snakeSize = 20;
 let snake = [
-    { x: 0, y: 0 },
-    { x: snakeSize, y: 0 },
-    { x: snakeSize * 2, y: 0 }
+    { x: 100, y: 100 },
+    { x: 100 + snakeSize, y: 100 },
+    { x: 100 + snakeSize * 2, y: 100 }
 ];
+
 let food = { x: 200, y: 200 };
 let score = 0;
 let dx = snakeSize;
@@ -69,11 +70,12 @@ function gameLoop() {
     snake.unshift(head);
 
     // Check for collision with walls or itself
- /*    if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height || checkCollision(head)) {
+    //    if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height || checkCollision(head)) {
+    if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
         console.log("In If then gameOver");
         gameOver();
         return;
-    } */
+    }
 
     // Check if the snake ate the food
     if (head.x === food.x && head.y === food.y) {
@@ -129,9 +131,13 @@ function checkCollision(head) {
 
 // Game over
 function gameOver() {
+    if (isGameOver) {
+        return;
+    }
     isGameOver = true;
     gameStatus.textContent = 'Game Over! Final Score: ' + score;
 }
+
 
 // Generate new food position
 function generateFood() {
@@ -176,7 +182,7 @@ function restartGame() {
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Delay the game loop start
-    setTimeout(gameLoop, 1000);
+    setTimeout(gameLoop, 2000);
 }
 
 
